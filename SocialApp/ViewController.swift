@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var tabbarView: TabBarView!
     var infoView: InfoView!
-    var socailView: SocialLabels!
+    var socialView: SocialLabels!
     var peoples = [Social]()
     var isInfoTapped = false
     var isFollowTapped = false
@@ -36,16 +36,16 @@ class ViewController: UIViewController {
     
     func setSocialsLables() {
         
-        socailView = SocialLabels()
-        socailView.backgroundColor = .clear
-        socailView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(socailView)
+        socialView = SocialLabels()
+        socialView.backgroundColor = .clear
+        socialView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(socialView)
         
         NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: socailView.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: socailView.trailingAnchor),
-            infoView.topAnchor.constraint(equalTo: socailView.bottomAnchor, constant: 10),
-            socailView.heightAnchor.constraint(equalToConstant: 50)
+            view.leadingAnchor.constraint(equalTo: socialView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: socialView.trailingAnchor),
+            infoView.topAnchor.constraint(equalTo: socialView.bottomAnchor, constant: 10),
+            socialView.heightAnchor.constraint(equalToConstant: 50)
         ])
         
     }
@@ -117,17 +117,17 @@ class ViewController: UIViewController {
             self.infoView.followButton.alpha = 0
             self.infoView.nameLbl.alpha = 0
             self.infoView.locationLbl.alpha = 0
-            self.socailView.followersLbl.alpha = 0
-            self.socailView.postLbl.alpha = 0
-            self.socailView.followingLbl.alpha = 0
+            self.socialView.followersLbl.alpha = 0
+            self.socialView.postLbl.alpha = 0
+            self.socialView.followingLbl.alpha = 0
             
             
             self.infoView.nameLbl.transform = CGAffineTransform(translationX: 0, y: 15)
             self.infoView.followButton.transform = CGAffineTransform(translationX: 0, y: 15)
             self.infoView.locationLbl.transform = CGAffineTransform(translationX: 0, y: 15)
-            self.socailView.followersLbl.transform = CGAffineTransform(translationX: 0, y: 15)
-            self.socailView.postLbl.transform = CGAffineTransform(translationX: 0, y: 15)
-            self.socailView.followingLbl.transform = CGAffineTransform(translationX: 0, y: 15)
+            self.socialView.followersLbl.transform = CGAffineTransform(translationX: 0, y: 15)
+            self.socialView.postLbl.transform = CGAffineTransform(translationX: 0, y: 15)
+            self.socialView.followingLbl.transform = CGAffineTransform(translationX: 0, y: 15)
             
         }) { (_) in
             
@@ -135,24 +135,24 @@ class ViewController: UIViewController {
                 
                 self.infoView.nameLbl.text = self.peoples[index].name
                 self.infoView.locationLbl.text = self.peoples[index].location
-                self.socailView.followersLbl.attributedText = self.socailView.getAttr(text: self.peoples[index].follow, subtext:  "followers")
-                self.socailView.postLbl.attributedText = self.socailView.getAttr(text: self.peoples[index].post, subtext:  "posts")
-                self.socailView.followingLbl.attributedText = self.socailView.getAttr(text: self.peoples[index].following, subtext:  "following")
+                self.socialView.followersLbl.attributedText = self.socialView.getAttr(text: self.peoples[index].follow, subtext:  "followers")
+                self.socialView.postLbl.attributedText = self.socialView.getAttr(text: self.peoples[index].post, subtext:  "posts")
+                self.socialView.followingLbl.attributedText = self.socialView.getAttr(text: self.peoples[index].following, subtext:  "following")
                 
                 
                 self.infoView.followButton.alpha = 1
                 self.infoView.nameLbl.alpha = 1
                 self.infoView.locationLbl.alpha = 1
-                self.socailView.followersLbl.alpha = 1
-                self.socailView.postLbl.alpha = 1
-                self.socailView.followingLbl.alpha = 1
+                self.socialView.followersLbl.alpha = 1
+                self.socialView.postLbl.alpha = 1
+                self.socialView.followingLbl.alpha = 1
                 
                 self.infoView.nameLbl.transform = .identity
                 self.infoView.followButton.transform = .identity
                 self.infoView.locationLbl.transform = .identity
-                self.socailView.followersLbl.transform = .identity
-                self.socailView.postLbl.transform = .identity
-                self.socailView.followingLbl.transform = .identity
+                self.socialView.followersLbl.transform = .identity
+                self.socialView.postLbl.transform = .identity
+                self.socialView.followingLbl.transform = .identity
                 
                 
             })
